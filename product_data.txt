@@ -1,0 +1,1 @@
+{"latte di soia": {"quantity": 15, "purchase_price": 0.8, "selling_price": 1.4}, "tofu": {"quantity": 2, "purchase_price": 2.2, "selling_price": 4.19}}
