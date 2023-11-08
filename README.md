@@ -21,10 +21,10 @@ Questo progetto consiste nel realizzare un software per la gestione di un negozi
 - Il profitto lordo è il totale delle vendite, cioè tutto ciò che i clienti hanno pagato, il profitto netto invece è pari al profitto lordo meno il costo di acquisto per i prodotti.
 
 
-## ESEMPIO DI INTERAZIONE CON IL PROGRAMMA (in grassetto l'input dell'utente)
+## ESEMPIO DI INTERAZIONE CON IL PROGRAMMA
 
-Inserisci un comando: **aiuto** 
-
+```
+Inserisci un comando: aiuto
 I comandi disponibili sono i seguenti:
 - aggiungi: aggiungi un prodotto al magazzino
 - elenca: elenca i prodotto in magazzino
@@ -33,111 +33,68 @@ I comandi disponibili sono i seguenti:
 - aiuto: mostra i possibili comandi
 - chiudi: esci dal programma
   
-Inserisci un comando: **aggiungi**
-
+Inserisci un comando: aggiungi
 Nome del prodotto: latte di soia
-
 Quantità: 20
-
 Prezzo di acquisto: 0.80
-
 Prezzo di vendita: 1.40
-
 AGGIUNTO: 20 X latte di soia
 
-
-Inserisci un comando: **aggiungi**
-
+Inserisci un comando: aggiungi
 Nome del prodotto: **tofu* *
-
 Quantità: **10**
-
 Prezzo di acquisto: **2.20**
-
 Prezzo di vendita: **4.19**
-
 AGGIUNTO: 10 X tofu
 
-Inserisci un comando: **aggiungi**
-
+Inserisci un comando: aggiungi
 Nome del prodotto: seitan
-
 Quantità: 5
-
-Prezzo di acquisto: **3**
-
+Prezzo di acquisto: 3
 Prezzo di vendita: 5.49
-
 AGGIUNTO: 5 X seitan
 
-Inserisci un comando: **elenca**
-
+Inserisci un comando: elenca
 PRODOTTO QUANTITA' PREZZO
-
 latte di soia 20 €1.4
-
 tofu 10 €4.19
-
 seitan 5 €5.49
 
-Inserisci un comando: **vendita**
-
-Nome del prodotto: **latte di soia**
-
+Inserisci un comando: vendita
+Nome del prodotto: latte di soia
 Quantità: 5
-
-Aggiungere un altro prodotto ? (si/no): **si**
-
+Aggiungere un altro prodotto ? (si/no): si
 Nome del prodotto: tofu
-
 Quantità: 2
-Aggiungere un altro prodotto ? (si/no): **no**
-
-**VENDITA REGISTRATA**
+Aggiungere un altro prodotto ? (si/no): no
+VENDITA REGISTRATA
 - 5 X latte di soia: €1.40
 - 2 X tofu: €4.19
-  
 Totale: €15.38
 
-
-Inserisci un comando: **elenca**
-
+Inserisci un comando: elenca
 PRODOTTO QUANTITA' PREZZO
-
 latte di soia 15 €1.4
-
 tofu 8 €4.19
-
 seitan 5 €5.49
 
-Inserisci un comando: **vendita**
-
-Nome del prodotto: **seitan**
-
+Inserisci un comando: vendita
+Nome del prodotto: seitan
 Quantità: 5
-
-Aggiungere un altro prodotto ? (si/no): **no**
-
+Aggiungere un altro prodotto ? (si/no): no
 VENDITA REGISTRATA
 - 5 X seitan: €5.49
 Totale: €27.45
 
-
-Inserisci un comando: **elenca**
-
+Inserisci un comando: elenca
 PRODOTTO QUANTITA' PREZZO
-
 latte di soia 15 €1.4
-
 tofu 8 €4.19
-
 Inserisci un comando: **profitti**
-
 Profitto: lordo=€42.83 netto=€19.43
 
-Inserisci un comando: **storna**
+Inserisci un comando: storna
 Comando non valido
-
 I comandi disponibili sono i seguenti:
 - aggiungi: aggiungi un prodotto al magazzino
 - elenca: elenca i prodotto in magazzino
@@ -146,15 +103,14 @@ I comandi disponibili sono i seguenti:
 - aiuto: mostra i possibili comandi
 - chiudi: esci dal programma
   
-Inserisci un comando: **chiudi**
-
+Inserisci un comando: chiudi
 Bye bye
-
+```
 
 
 ## Ricorda Sempre
 1. Nel lavoro è fondamentale seguire sempre le specifiche che ci vengono date alla lettera, quindi il programma deve contenere esattamente le funzioni specificate e deve produrre esattamente l'output dell'esempio se riceve lo stesso input.
-2. Una funzione deve fare una e una cosa sola, cerca di scrivere funzioni brevi e concise, se una funzione è troppo lunga è molto probabile che vada spezzata in più funzioni. Approfondimento 1 Approfondimento 2
-3. Sentirai spesso dire che è sempre necessario commentare il codice, falso! Un codice ben scritto si commenta da solo, non usare i commenti per descrivere quello che stai facendo, deve essere chiaro dal codice. Approfondimento 1 Approdondimento 2
+2. Una funzione deve fare una e una cosa sola, cerca di scrivere funzioni brevi e concise, se una funzione è troppo lunga è molto probabile che vada spezzata in più funzioni.
+3. Sentirai spesso dire che è sempre necessario commentare il codice, falso! Un codice ben scritto si commenta da solo, non usare i commenti per descrivere quello che stai facendo, deve essere chiaro dal codice. 
 4. Utilizza le docstrings per documentare funzioni, classi e metodi.
-5. I nomi di variabili, funzioni e metodi vanno sempre scritti in inglese, utilizzando lo snake case, il camel case va usato solo per i nomi di classi. Non mischiare italiano e inglese, sempre è solo inglese. Approfondimento 1
+5. I nomi di variabili, funzioni e metodi vanno sempre scritti in inglese, utilizzando lo snake case, il camel case va usato solo per i nomi di classi. Non mischiare italiano e inglese, sempre è solo inglese.
