@@ -1,5 +1,7 @@
+
 # Software di un negozio di prodotti vegani
 Commissionato da: **Profession AI**
+
 
 Questo progetto consiste nel realizzare un software per la gestione di un negozio di prodotti vegani. Il software deve avere le seguenti funzionalità:
 
