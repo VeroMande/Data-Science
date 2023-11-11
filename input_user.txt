@@ -1,0 +1,1 @@
+{"gross_profit": {"tot": 42.830000000000005}, "net_profit": {"tot": 23.4}}
