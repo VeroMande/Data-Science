@@ -7,8 +7,8 @@ def choise_command():
     '''
     :return: user input
     '''
-    user_input = input("Insert a command (insert [close] to terminate): ")
-    if user_input.lower() == 'close':
+    user_input = input("Inserisci un comando ([chiudi] per terminare): ")
+    if user_input.lower() == 'chiudi':
         print('Bye bye')
         return user_input, False
     else:
@@ -16,13 +16,13 @@ def choise_command():
 
 
 def help_user():
-    print("The available commands are the following: "
-          "\n• add: add a product to the warehouse"
-          "\n• list: lists the products in stock"
-          "\n• sale: records a sale made"
-          "\n• Profits: Shows total profits"
-          "\n• help: shows possible commands"
-          "\n• close: exit the program\n")
+    print("I comandi disponibili sono i seguenti: "
+          "\n• aggiungi: aggiungi un prodotto al magazzino"
+          "\n• elenca: elenca i prodotto in magazzino"
+          "\n• vendita: registra una vendita effettuata"
+          "\n• profitti: mostra i profitti totali"
+          "\n• aiuto: mostra i possibili comandi"
+          "\n• chiudi: esci dal programma\n")
 
 
 def add_product(products, validate_products):
@@ -44,7 +44,7 @@ def add_product(products, validate_products):
             'selling_price': selling_price
         }
     save_data_to_file(products, 'product_data.txt')
-    print(f"Added {quantity} X {product_name}\n")
+    print(f"AGGIUNTO: {quantity} X {product_name}\n")
     return products
 
 
@@ -53,12 +53,12 @@ def list_products(products):
     shows the list of products available in the store
     '''
     if len(products) == 0:
-        print("There are no products in stock")
+        print("Non ci sono prodotti in magazzino")
     else:
-        print("PRODUCT", "QUANTITY", "PRICE")
+        print("Prodotto", "Quantità", "Prezzo")
         #table = [["PRODUCT", "QUANTITY", "PRICE"]]
         for key, value in products.items():
-            print(f"{key} {value['quantity']} ${value['selling_price']}")
+            print(f"{key} {value['quantity']} €{value['selling_price']}")
             #table.append([key, value['quantity'], value['selling_price']])
         #print(tabulate(table, headers="firstrow", tablefmt="github"))
         print(' ')
@@ -75,7 +75,7 @@ def product_sales(products, dict_input_user, validate_products):
     tot_sale = 0
     tot_purchase = 0
     if len(products) == 0:
-        print("No products to purchase in stock")
+        print("Nessun prodotto da acquistare a magazzino")
         return
     while True:
         product_name = validate_products.find_product(products)
@@ -86,14 +86,14 @@ def product_sales(products, dict_input_user, validate_products):
         product_data = {'quantity': quantity, 'selling_price': selling_price, 'purchase_price': purchase_price}
         added_product[product_name] = product_data
 
-        choose = input("Add another product? [yes/NO]")
-        if choose.lower() != 'yes':
-            print(f"REGISTERED SALE:")
+        choose = input("Aggiungere un altro prodotto? (si/NO)")
+        if choose.lower() != 'si':
+            print(f"VENDITA REGISTRATA:")
             for key, value in added_product.items():
                 tot_sale += value['quantity'] * value['selling_price']
                 tot_purchase += value['quantity'] * float(value['purchase_price'])
-                print(f"- {value['quantity']} X {key}: ${value['selling_price']}")
-            print(f"Totale: ${round(tot_sale, 2)}\n")
+                print(f"- {value['quantity']} X {key}: €{value['selling_price']}")
+            print(f"Totale: €{round(tot_sale, 2)}\n")
 
             if 'gross_profit' not in dict_input_user and 'net_profit' not in dict_input_user:
                 dict_input_user['gross_profit'] = {'tot': tot_sale}
@@ -116,11 +116,11 @@ def profits(dict_input_user):
     net profit = gross profit minus the purchase cost for the products
     '''
     if len(dict_input_user) == 0:
-        print('Impossible to calculate profits. No purchases have been made yet.')
+        print('Impossibile calcolare i profitti. Non è stato ancora effettuato alcun acquisto.')
         return
     gross_profit = dict_input_user['gross_profit']['tot']
     net_profit = dict_input_user['net_profit']['tot']
-    print(f"Profit: Gross profit = ${round(gross_profit, 2)} Net profit = ${round(gross_profit-net_profit, 2)}\n")
+    print(f"Profitto: lordo = €{round(gross_profit, 2)} netto = €{round(gross_profit-net_profit, 2)}\n")
 
 
 def save_data_to_file(data, filename):
@@ -154,20 +154,20 @@ def main():
         if not is_close:
             break
         else:
-            if cmd.lower() == 'help':
+            if cmd.lower() == 'aiuto':
                 help_user()
-            elif cmd.lower() == 'add':
+            elif cmd.lower() == 'aggiungi':
                 add_product(dict_products, validate_products)
-            elif cmd.lower() == 'list':
+            elif cmd.lower() == 'elenca':
                 list_products(dict_products)
-            elif cmd.lower() == 'sale':
+            elif cmd.lower() == 'vendita':
                 product_sales(dict_products, dict_input_user, validate_products)
-            elif cmd.lower() == 'profit':
+            elif cmd.lower() == 'profitti':
                 profits(dict_input_user)
-            elif cmd.lower() == 'close':
+            elif cmd.lower() == 'chiudi':
                 print('Bye bye')
             else:
-                print("Enter [help] to see options")
+                print("Inserisci [aiuto] per vedere le opzioni")
 
 
 if __name__ == '__main__':
