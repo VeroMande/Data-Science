@@ -10,33 +10,33 @@ class ValidateInput:
         search for a product in the store to purchase
         '''
         while True:
-            product_name = input("Product Name: ")
+            product_name = input("Nome del prodotto: ")
             if product_name in products:
                 return product_name
             else:
-                print("The product is not in stock")
-                print("The products available for purchase are:")
+                print("Il prodotto non è in magazzino")
+                print("I prodotti acquistabili sono:")
                 for available_product in products:
                     print(f"• {available_product}")
 
     def validate_product_name(self):
         while True:
-            product_name = input("Product Name: ")
+            product_name = input("Nome del prodotto: ")
             if re.match(r'^[a-zA-Z\s]+$', product_name):
                 return product_name
             else:
-                print("The product name must contain only alphabetic letters")
+                print("Il nome del prodotto deve contenere solo lettere.")
 
     def validate_quantity(self):
         while True:
             try:
-                quantity = int(input("Quantity: "))
+                quantity = int(input("Quantità: "))
                 if quantity <= 0:
-                    print("The quantity cannot be zero or negative")
+                    print("La quantità non può essere zero o negativa")
                     continue
                 return quantity
             except ValueError:
-                print('Please enter a valid integer quantity.')
+                print('Inserisci una quantità intera valida.')
 
     def get_valide_quantity(self, product_name, products):
         '''
@@ -44,21 +44,21 @@ class ValidateInput:
         '''
         while True:
             try:
-                quantity = int(input("Quantity: "))
+                quantity = int(input("Quantità: "))
                 if quantity > 0 and quantity <= products[product_name]['quantity']:
                     products[product_name]['quantity'] -= quantity
                     return quantity
                 else:
-                    print("Please enter a valid quantity within available stock")
+                    print("Inserisci una quantità valida all'interno dello stock disponibile")
             except ValueError:
-                print("Please enter a valid numeric quantity")
+                print("Inserisci una quantità numerica valida")
 
 
     def validate_purchase_price(self):
         while True:
-            purchase_price = input("Purchase price: ")
+            purchase_price = input("Prezzo di acquisto: ")
             if float(purchase_price) <= 0:
-                print('The purchase price cannot be negative')
+                print('Il prezzo di acquisto non può essere negativo')
             elif '.' in purchase_price:
                 integer_part, decimal_part = purchase_price.split('.')
                 if len(integer_part) == 1 and integer_part.isdigit() and len(
@@ -66,17 +66,17 @@ class ValidateInput:
                     purchase_price = float(purchase_price)
                     return purchase_price
                 else:
-                    print("Enter only 1 value before the decimal point and 2 after it")
+                    print("Inserisci solo 1 valore prima del punto decimale e 2 dopo di esso")
             elif purchase_price.isdigit():
                 return purchase_price
             else:
-                print("Purchase price must be a decimal number")
+                print("Il prezzo di acquisto deve essere un numero decimale")
 
     def validate_selling_price(self, purchase_price):
         while True:
-            selling_price = input("Selling price: ")
+            selling_price = input("Prezzo di vendita: ")
             if float(selling_price) <= 0:
-                print('The purchase price cannot be negative')
+                print('Il prezzo di acquisto non può essere negativo')
             elif '.' in selling_price:
                 integer_part, decimal_part = selling_price.split('.')
                 if len(integer_part) == 1 and integer_part.isdigit() and len(
@@ -85,10 +85,10 @@ class ValidateInput:
                     if float(selling_price) > float(purchase_price):
                         return selling_price
                     else:
-                        print("Selling price must be greater than the purchase price")
+                        print("Il prezzo di vendita deve essere superiore al prezzo di acquisto")
                 else:
-                    print("Enter only 1 value before the decimal point and 2 after it")
+                    print("Inserisci solo 1 valore prima del punto decimale e 2 dopo di esso")
             elif purchase_price.isdigit():
                 return purchase_price
             else:
-                print("Selling price must be a decimal number")
+                print("Il prezzo di vendita deve essere un numero decimale")
